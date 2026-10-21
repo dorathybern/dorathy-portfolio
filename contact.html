@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Contact Dorathy Oname Bernard, Software Engineering student at Miva Open University, Nigeria.">
+
+    <title>Contact | Dorathy Oname Bernard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+
+        <div class="academic-label">
+            <div class="academic-label-inner">
+                <strong>SOFTWARE ENGINEERING STUDENT PORTFOLIO</strong>
+                <span>
+                    
+                </span>
+            </div>
+        </div>
+
+        <nav class="navbar" aria-label="Main navigation">
+
+            <a href="index.html" class="brand"
+               aria-label="Dorathy Oname Bernard home">
+
+                <span class="brand-details">
+                    <strong>Dorathy Oname Bernard</strong>
+
+                    <span class="brand-university">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 3 1.5 8.5 12 14l8-4.2V16h2V8.5L12 3Zm-6.5 9.1V17c3.8 2.8 9.2 2.8 13 0v-4.9L12 16l-6.5-3.9Z"/>
+                        </svg>
+                        Miva Open University
+                    </span>
+                </span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="planner.html">Academic Planner</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section contact-section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">CONTACT</p>
+
+                <h2>
+                    Let's connect
+                    <span>and build.</span>
+                </h2>
+
+                <p class="section-intro">
+                    Have a question, project idea, or simply
+                    want to say hello? Send me a message.
+                </p>
+
+            </div>
+
+
+            <div class="contact-grid">
+
+                <!-- CONTACT DETAILS -->
+                <div class="contact-details">
+
+                    <div class="contact-item">
+                        <span>NAME</span>
+                        <p>Dorathy Oname Bernard</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <span>FIELD</span>
+                        <p>Software Engineering</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <span>UNIVERSITY</span>
+                        <p>Miva Open University Nigeria</p>
+                    </div>
+
+                </div>
+
+
+                <!-- CONTACT FORM -->
+                <form
+                    id="contactForm"
+                    class="contact-form"
+                    novalidate
+                >
+
+                    <div class="form-group">
+                        <label for="name">NAME</label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Your name"
+                            autocomplete="name"
+                            required
+                            aria-describedby="nameError"
+                        >
+
+                        <small class="field-error" id="nameError"></small>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="email">EMAIL</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="your@email.com"
+                            autocomplete="email"
+                            required
+                            aria-describedby="emailError"
+                        >
+
+                        <small class="field-error" id="emailError"></small>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="phone">PHONE NUMBER</label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="08012345678 or +2348012345678"
+                            autocomplete="tel"
+                            inputmode="tel"
+                            required
+                            aria-describedby="phoneError"
+                        >
+
+                        <small class="field-error" id="phoneError"></small>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="message">MESSAGE</label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            placeholder="Write your message..."
+                            required
+                            minlength="10"
+                            aria-describedby="messageError"
+                        ></textarea>
+
+                        <small class="field-error" id="messageError"></small>
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        SEND MESSAGE
+                    </button>
+
+                    <p
+                        id="formMessage"
+                        class="form-message"
+                        role="status"
+                        aria-live="polite"
+                    ></p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+     <!-- FOOTER: PRESERVE DOB. BRANDING -->
+    <footer class="site-footer">
+
+        <div>
+            <strong>DOB.</strong>
+            <p>Dorathy Oname Bernard</p>
+            <p>Software Engineering Student</p>
+        </div>
+
+        <p>Miva Open University Nigeria</p>
+
+        <p>&copy; 2026 Dorathy Oname Bernard</p>
+
+    </footer>
+
+
+    <!-- CONTACT FORM VALIDATION -->
+    <script>
+        const contactForm = document.getElementById("contactForm");
+        const formMessage = document.getElementById("formMessage");
+
+        const fields = {
+            name: document.getElementById("name"),
+            email: document.getElementById("email"),
+            phone: document.getElementById("phone"),
+            message: document.getElementById("message")
+        };
+
+        const errorElements = {
+            name: document.getElementById("nameError"),
+            email: document.getElementById("emailError"),
+            phone: document.getElementById("phoneError"),
+            message: document.getElementById("messageError")
+        };
+
+        function showError(fieldName, message) {
+            errorElements[fieldName].textContent = message;
+            fields[fieldName].setAttribute("aria-invalid", "true");
+        }
+
+        function clearError(fieldName) {
+            errorElements[fieldName].textContent = "";
+            fields[fieldName].removeAttribute("aria-invalid");
+        }
+
+        function clearAllErrors() {
+            Object.keys(fields).forEach(clearError);
+            formMessage.textContent = "";
+            formMessage.classList.remove("error", "success");
+        }
+
+        function validateForm() {
+            clearAllErrors();
+
+            const name = fields.name.value.trim();
+            const email = fields.email.value.trim();
+            const phone = fields.phone.value.trim();
+            const message = fields.message.value.trim();
+
+            let isValid = true;
+
+            if (name.length < 2) {
+                showError("name", "Please enter your name.");
+                isValid = false;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(email)) {
+                showError("email", "Please enter a valid email address.");
+                isValid = false;
+            }
+
+            // Accept common Nigerian phone formats, including +234.
+            const normalizedPhone = phone.replace(/[\s()-]/g, "");
+            const phonePattern = /^(?:\+234|234|0)[789][01]\d{8}$/;
+
+            if (!phonePattern.test(normalizedPhone)) {
+                showError(
+                    "phone",
+                    "Enter a valid Nigerian phone number, for example 08012345678."
+                );
+                isValid = false;
+            }
+
+            if (message.length < 10) {
+                showError(
+                    "message",
+                    "Please enter a message of at least 10 characters."
+                );
+                isValid = false;
+            }
+
+            if (!isValid) {
+                const firstInvalidField = contactForm.querySelector(
+                    '[aria-invalid="true"]'
+                );
+
+                if (firstInvalidField) {
+                    firstInvalidField.focus();
+                }
+            }
+
+            return isValid;
+        }
+
+        // Clear an individual error when the visitor edits that field.
+        Object.keys(fields).forEach(function (fieldName) {
+            fields[fieldName].addEventListener("input", function () {
+                clearError(fieldName);
+                formMessage.textContent = "";
+                formMessage.classList.remove("error", "success");
+            });
+        });
+
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (!validateForm()) {
+                formMessage.textContent =
+                    "Please correct the highlighted fields and try again.";
+
+                formMessage.classList.add("error");
+                return;
+            }
+
+            /*
+              This is a front-end demonstration.
+              No email is sent because a message delivery service
+              has not yet been connected.
+            */
+            formMessage.textContent =
+                "Your details have passed validation. Message delivery is not connected yet.";
+
+            formMessage.classList.add("success");
+
+            // Keep the entered details so the visitor does not lose them.
+        });
+    </script>
+
+</body>
+</html>

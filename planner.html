@@ -1,0 +1,752 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Academic Planner | Dorathy Oname Bernard</title>
+
+    <meta
+        name="description"
+        content="Academic Planner for organising coursework, deadlines, priorities, and study tasks."
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ACADEMIC HEADER -->
+    <header class="site-header">
+
+        <div class="academic-label">
+            <div class="academic-label-inner">
+                <strong>SOFTWARE ENGINEERING STUDENT PORTFOLIO</strong>
+
+                <span>
+                   
+            </div>
+        </div>
+
+        <!-- MAIN NAVIGATION -->
+        <nav class="navbar" aria-label="Main navigation">
+
+            <a
+                href="index.html"
+                class="brand"
+                aria-label="Dorathy Oname Bernard home"
+            >
+                <span class="brand-details">
+
+                    <strong>Dorathy Oname Bernard</strong>
+
+                    <span class="brand-university">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 3 1.5 8.5 12 14l8-4.2V16h2V8.5L12 3Zm-6.5 9.1V17c3.8 2.8 9.2 2.8 13 0v-4.9L12 16l-6.5-3.9Z"/>
+                        </svg>
+                        Miva Open University
+                    </span>
+
+                </span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li>
+                    <a href="planner.html" aria-current="page">
+                        Academic Planner
+                    </a>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <!-- ACADEMIC PLANNER -->
+        <section class="section planner-section" id="planner">
+
+            <!-- PLANNER INTRODUCTION AND FILTERS -->
+            <div class="planner-filter-card">
+
+                <div class="planner-filter-heading">
+
+                    <div>
+                        <p class="eyebrow">YOUR STUDY SPACE</p>
+
+                        <h1>
+                            Academic
+                            <span>Planner.</span>
+                        </h1>
+
+                        <p>
+                            Stay organised, manage your deadlines,
+                            and make progress one task at a time.
+                        </p>
+                    </div>
+
+                    <span
+                        class="planner-calendar-icon"
+                        aria-hidden="true"
+                    >
+                        ▦
+                    </span>
+
+                </div>
+
+                <!-- TASK STATUS FILTERS -->
+                <div
+                    class="task-filters"
+                    role="group"
+                    aria-label="Filter academic tasks by status"
+                >
+
+                    <button
+                        type="button"
+                        class="task-filter is-active"
+                        data-filter="all"
+                        aria-pressed="true"
+                    >
+                        All Tasks
+                    </button>
+
+                    <button
+                        type="button"
+                        class="task-filter"
+                        data-filter="pending"
+                        aria-pressed="false"
+                    >
+                        Pending
+                    </button>
+
+                    <button
+                        type="button"
+                        class="task-filter"
+                        data-filter="completed"
+                        aria-pressed="false"
+                    >
+                        Completed
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- ADD TASK FORM -->
+            <div class="planner-form-card">
+
+                <div class="section-heading">
+                    <p class="eyebrow">PLAN YOUR PROGRESS</p>
+                    <h2>Add a <span>new task.</span></h2>
+                </div>
+
+                <form id="academicTaskForm">
+
+                    <div class="planner-field">
+
+                        <label for="taskInput">TASK TITLE</label>
+
+                        <input
+                            id="taskInput"
+                            name="task"
+                            type="text"
+                            placeholder="e.g. Complete COS 106 assessment"
+                            maxlength="180"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="planner-form-grid">
+
+                        <div class="planner-field">
+
+                            <label for="taskCategory">
+                                CATEGORY / COURSE
+                            </label>
+
+                            <select id="taskCategory" name="category">
+
+                                <option value="Intro to Web Technologies">
+                                    Intro to Web Technologies
+                                </option>
+
+                                <option value="Programming">
+                                    Programming
+                                </option>
+
+                                <option value="Systems Analysis and Design">
+                                    Systems Analysis and Design
+                                </option>
+
+                                <option value="Software Engineering">
+                                    Software Engineering
+                                </option>
+
+                                <option value="General">
+                                    General
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="planner-field">
+
+                            <label for="taskDueDate">DUE DATE</label>
+
+                            <input
+                                id="taskDueDate"
+                                name="dueDate"
+                                type="date"
+                            >
+
+                        </div>
+
+                        <div class="planner-field planner-priority-field">
+
+                            <label for="taskPriority">
+                                PRIORITY LEVEL
+                            </label>
+
+                            <select id="taskPriority" name="priority">
+
+                                <option value="medium">
+                                    Medium Priority
+                                </option>
+
+                                <option value="high">
+                                    High Priority
+                                </option>
+
+                                <option value="low">
+                                    Low Priority
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        id="addTaskButton"
+                        class="planner-add-button"
+                        type="submit"
+                    >
+                        <span aria-hidden="true">＋</span>
+                        Add Task
+                    </button>
+
+                    <p
+                        id="taskMessage"
+                        class="planner-message"
+                        role="status"
+                        aria-live="polite"
+                    ></p>
+
+                </form>
+
+            </div>
+
+            <!-- TASK SUMMARY -->
+            <div class="planner-summary">
+
+                <div class="planner-summary-card">
+                    <span class="summary-label">TOTAL TASKS</span>
+                    <strong id="totalTaskCount">0</strong>
+                </div>
+
+                <div class="planner-summary-card">
+                    <span class="summary-label">PENDING</span>
+                    <strong id="pendingTaskCount">0</strong>
+                </div>
+
+                <div class="planner-summary-card">
+                    <span class="summary-label">COMPLETED</span>
+                    <strong id="completedTaskCount">0</strong>
+                </div>
+
+            </div>
+
+            <!-- TASK LIST AND PRIORITY FILTER -->
+            <div class="planner-list-card">
+
+                <div class="planner-list-heading">
+
+                    <div>
+                        <p class="eyebrow">YOUR SCHEDULE</p>
+                        <h2>My <span>tasks.</span></h2>
+                    </div>
+
+                    <div class="planner-field priority-filter-field">
+
+                        <label for="priorityFilter">
+                            FILTER BY PRIORITY
+                        </label>
+
+                        <select id="priorityFilter">
+
+                            <option value="all">All priorities</option>
+                            <option value="high">High priority</option>
+                            <option value="medium">Medium priority</option>
+                            <option value="low">Low priority</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <p id="visibleTaskCount" class="task-count">
+                    Showing 0 tasks
+                </p>
+
+                <div
+                    id="taskList"
+                    class="task-list"
+                    aria-live="polite"
+                >
+
+                    <p class="empty-task-message">
+                        No tasks yet. Add your first task above.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- STUDY REMINDER -->
+            <div class="planner-reminder">
+
+                <span aria-hidden="true">✦</span>
+
+                <div>
+                    <h3>A little progress adds up.</h3>
+
+                    <p>
+                        Break your coursework into manageable tasks,
+                        set realistic deadlines, and celebrate each
+                        completed step in your learning journey.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER: PRESERVE DOB. BRANDING -->
+    <footer class="site-footer">
+
+        <div>
+            <strong>DOB.</strong>
+            <p>Dorathy Oname Bernard</p>
+            <p>Software Engineering Student</p>
+        </div>
+
+        <p>Miva Open University Nigeria</p>
+
+        <p>&copy; 2026 Dorathy Oname Bernard</p>
+
+    </footer>
+
+    <!-- ACADEMIC PLANNER JAVASCRIPT -->
+    <script>
+        (() => {
+            "use strict";
+
+            const taskInput = document.getElementById("taskInput");
+            const taskCategory = document.getElementById("taskCategory");
+            const taskDueDate = document.getElementById("taskDueDate");
+            const taskPriority = document.getElementById("taskPriority");
+            const taskForm = document.getElementById("academicTaskForm");
+            const taskList = document.getElementById("taskList");
+            const taskMessage = document.getElementById("taskMessage");
+            const priorityFilter = document.getElementById("priorityFilter");
+            const filterButtons = document.querySelectorAll(".task-filter");
+
+            const totalTaskCount = document.getElementById("totalTaskCount");
+            const pendingTaskCount = document.getElementById("pendingTaskCount");
+            const completedTaskCount = document.getElementById("completedTaskCount");
+            const visibleTaskCount = document.getElementById("visibleTaskCount");
+
+            const STORAGE_KEY = "dorathyPortfolioAcademicTasks";
+
+            let tasks = [];
+            let currentFilter = "all";
+            let currentPriorityFilter = "all";
+
+            function showMessage(message) {
+                taskMessage.textContent = message;
+            }
+
+            function loadTasks() {
+                try {
+                    const savedTasks = localStorage.getItem(STORAGE_KEY);
+
+                    if (!savedTasks) {
+                        tasks = [];
+                        return;
+                    }
+
+                    const parsedTasks = JSON.parse(savedTasks);
+
+                    if (!Array.isArray(parsedTasks)) {
+                        tasks = [];
+                        return;
+                    }
+
+                    tasks = parsedTasks
+                        .map((task, index) => ({
+                            id: task.id || `${Date.now()}-${index}`,
+                            text: String(task.text || task.title || ""),
+                            category: task.category || "General",
+                            dueDate: task.dueDate || "",
+                            priority: ["high", "medium", "low"].includes(task.priority)
+                                ? task.priority
+                                : "medium",
+                            completed: Boolean(task.completed)
+                        }))
+                        .filter(task => task.text.trim() !== "");
+
+                } catch (error) {
+                    console.error("Could not load academic tasks:", error);
+                    tasks = [];
+                    showMessage("Saved tasks could not be loaded.");
+                }
+            }
+
+            function saveTasks() {
+                try {
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+                    return true;
+
+                } catch (error) {
+                    console.error("Could not save academic tasks:", error);
+                    showMessage("Your changes could not be saved in this browser.");
+                    return false;
+                }
+            }
+
+            function formatDueDate(dateString) {
+                if (!dateString) {
+                    return "No due date set";
+                }
+
+                const parts = dateString.split("-").map(Number);
+                const date = new Date(parts[0], parts[1] - 1, parts[2]);
+
+                return "Due " + date.toLocaleDateString("en-GB", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric"
+                });
+            }
+
+            function getDueDateStatus(task) {
+                if (!task.dueDate || task.completed) {
+                    return "";
+                }
+
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+
+                const parts = task.dueDate.split("-").map(Number);
+                const dueDate = new Date(parts[0], parts[1] - 1, parts[2]);
+                dueDate.setHours(0, 0, 0, 0);
+
+                if (dueDate < today) {
+                    return "Overdue";
+                }
+
+                if (dueDate.getTime() === today.getTime()) {
+                    return "Due today";
+                }
+
+                return "";
+            }
+
+            function createElement(tagName, className, text) {
+                const element = document.createElement(tagName);
+
+                if (className) {
+                    element.className = className;
+                }
+
+                if (text !== undefined) {
+                    element.textContent = text;
+                }
+
+                return element;
+            }
+
+            function updateSummary() {
+                const completed = tasks.filter(task => task.completed).length;
+                const pending = tasks.length - completed;
+
+                totalTaskCount.textContent = tasks.length;
+                pendingTaskCount.textContent = pending;
+                completedTaskCount.textContent = completed;
+            }
+
+            function createTaskItem(task) {
+                const item = createElement("article", "task-item");
+
+                if (task.completed) {
+                    item.classList.add("completed");
+                }
+
+                item.dataset.taskId = task.id;
+
+                const taskMain = createElement("div", "task-main");
+
+                const taskHeading = createElement("div", "task-heading");
+
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.className = "task-checkbox";
+                checkbox.checked = task.completed;
+                checkbox.setAttribute(
+                    "aria-label",
+                    task.completed
+                        ? `Mark ${task.text} as pending`
+                        : `Mark ${task.text} as completed`
+                );
+
+                checkbox.addEventListener("change", () => {
+                    toggleTask(task.id);
+                });
+
+                const title = createElement("h3", "task-text", task.text);
+
+                if (task.completed) {
+                    title.classList.add("task-completed-text");
+                }
+
+                taskHeading.append(checkbox, title);
+
+                const metadata = createElement("div", "task-meta");
+
+                metadata.appendChild(
+                    createElement("span", "task-category", task.category)
+                );
+
+                metadata.appendChild(
+                    createElement("span", "task-due-date", formatDueDate(task.dueDate))
+                );
+
+                const dueStatus = getDueDateStatus(task);
+
+                if (dueStatus) {
+                    metadata.appendChild(
+                        createElement(
+                            "span",
+                            dueStatus === "Overdue"
+                                ? "task-due-status overdue"
+                                : "task-due-status due-today",
+                            dueStatus
+                        )
+                    );
+                }
+
+                taskMain.append(taskHeading, metadata);
+
+                const actions = createElement("div", "task-actions");
+
+                actions.appendChild(
+                    createElement(
+                        "span",
+                        `task-priority priority-${task.priority}`,
+                        `${task.priority.charAt(0).toUpperCase()}${task.priority.slice(1)} priority`
+                    )
+                );
+
+                const deleteButton = createElement(
+                    "button",
+                    "task-delete-button",
+                    "Delete"
+                );
+
+                deleteButton.type = "button";
+                deleteButton.setAttribute("aria-label", `Delete task: ${task.text}`);
+
+                deleteButton.addEventListener("click", () => {
+                    deleteTask(task.id);
+                });
+
+                actions.appendChild(deleteButton);
+                item.append(taskMain, actions);
+
+                return item;
+            }
+
+            function getFilteredTasks() {
+                return tasks.filter(task => {
+                    const matchesStatus =
+                        currentFilter === "all" ||
+                        (currentFilter === "pending" && !task.completed) ||
+                        (currentFilter === "completed" && task.completed);
+
+                    const matchesPriority =
+                        currentPriorityFilter === "all" ||
+                        task.priority === currentPriorityFilter;
+
+                    return matchesStatus && matchesPriority;
+                });
+            }
+
+            function renderTasks() {
+                taskList.replaceChildren();
+
+                const filteredTasks = getFilteredTasks();
+
+                if (filteredTasks.length === 0) {
+                    let message;
+
+                    if (tasks.length === 0) {
+                        message = "No tasks yet. Add your first task above.";
+                    } else {
+                        message = "No tasks match the selected filters.";
+                    }
+
+                    taskList.appendChild(
+                        createElement("p", "empty-task-message", message)
+                    );
+
+                } else {
+                    filteredTasks.forEach(task => {
+                        taskList.appendChild(createTaskItem(task));
+                    });
+                }
+
+                visibleTaskCount.textContent =
+                    `Showing ${filteredTasks.length} of ${tasks.length} tasks`;
+
+                updateSummary();
+            }
+
+            function addTask(event) {
+                event.preventDefault();
+
+                const text = taskInput.value.trim();
+
+                if (!text) {
+                    showMessage("Please enter a task title.");
+                    taskInput.focus();
+                    return;
+                }
+
+                const task = {
+                    id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+                    text: text,
+                    category: taskCategory.value,
+                    dueDate: taskDueDate.value,
+                    priority: taskPriority.value,
+                    completed: false
+                };
+
+                tasks.unshift(task);
+
+                const saved = saveTasks();
+
+                currentFilter = "all";
+                currentPriorityFilter = "all";
+                priorityFilter.value = "all";
+
+                filterButtons.forEach(button => {
+                    const isActive = button.dataset.filter === "all";
+
+                    button.classList.toggle("is-active", isActive);
+                    button.setAttribute("aria-pressed", String(isActive));
+                });
+
+                renderTasks();
+                taskForm.reset();
+
+                taskCategory.value = "Intro to Web Technologies";
+                taskPriority.value = "medium";
+
+                showMessage(
+                    saved
+                        ? "Task added successfully."
+                        : "Task added for this session, but could not be saved."
+                );
+
+                taskInput.focus();
+            }
+
+            function toggleTask(taskId) {
+                tasks = tasks.map(task => {
+                    if (task.id === taskId) {
+                        return {
+                            ...task,
+                            completed: !task.completed
+                        };
+                    }
+
+                    return task;
+                });
+
+                saveTasks();
+                renderTasks();
+                showMessage("Task status updated.");
+            }
+
+            function deleteTask(taskId) {
+                const taskToDelete = tasks.find(task => task.id === taskId);
+
+                if (!taskToDelete) {
+                    return;
+                }
+
+                tasks = tasks.filter(task => task.id !== taskId);
+
+                saveTasks();
+                renderTasks();
+                showMessage("Task deleted.");
+            }
+
+            function setStatusFilter(event) {
+                const button = event.currentTarget;
+
+                currentFilter = button.dataset.filter;
+
+                filterButtons.forEach(filterButton => {
+                    const isActive = filterButton === button;
+
+                    filterButton.classList.toggle("is-active", isActive);
+                    filterButton.setAttribute("aria-pressed", String(isActive));
+                });
+
+                renderTasks();
+            }
+
+            function setPriorityFilter() {
+                currentPriorityFilter = priorityFilter.value;
+                renderTasks();
+            }
+
+            taskForm.addEventListener("submit", addTask);
+
+            filterButtons.forEach(button => {
+                button.addEventListener("click", setStatusFilter);
+            });
+
+            priorityFilter.addEventListener("change", setPriorityFilter);
+
+            loadTasks();
+            renderTasks();
+
+        })();
+    </script>
+
+</body>
+</html>
