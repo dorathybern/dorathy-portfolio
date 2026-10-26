@@ -940,7 +940,7 @@ textarea {
 /* FOOTER */
 
 .site-footer {
-    padding: 25px 5%;
+    padding: 12px 5%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -953,13 +953,14 @@ textarea {
 }
 
 .site-footer strong {
-    color: var(--sage);
+    color: #F0D58A;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.1rem;
+    font-size: 0.76rem;
+    font-weight: 400;
 }
 
 .site-footer p {
-    color: rgba(247, 243, 234, 0.8);
+    color: #F0D58A;
 }
 
 /* ANIMATION */
