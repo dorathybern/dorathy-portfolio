@@ -871,7 +871,6 @@ tbody tr:last-child td {
 }
 
 /* CONTACT */
-
 .contact-section {
     padding-top: 65px;
     padding-bottom: 80px;
@@ -891,22 +890,59 @@ tbody tr:last-child td {
     gap: 22px;
 }
 
-.contact-item {
+.contact-details .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
     padding-bottom: 14px;
     border-bottom: 1px solid var(--border);
 }
 
-.contact-item span {
-    color: var(--gold);
-    font-family: Arial, sans-serif;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
+.contact-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--sage);
+    color: var(--cream);
+    font-size: 20px;
 }
 
-.contact-item p {
-    margin-top: 5px;
+.contact-icon i {
+    color: var(--cream);
+}
+
+.contact-info {
+    min-width: 0;
+}
+
+.contact-info h3 {
+    margin: 0 0 5px;
+    color: var(--green-dark);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.contact-info p,
+.contact-info a {
+    margin: 0;
+    color: var(--muted);
+    font-family: Arial, sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.5;
     overflow-wrap: anywhere;
+}
+
+.contact-info a {
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: var(--green);
+    text-decoration: underline;
 }
 
 .contact-form {
@@ -937,10 +973,48 @@ textarea {
     width: 100%;
 }
 
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        padding-top: 45px;
+        padding-bottom: 55px;
+    }
+
+    .contact-details .contact-item {
+        gap: 12px;
+    }
+
+    .contact-icon {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        font-size: 18px;
+    }
+
+    .contact-form {
+        padding: 18px;
+    }
+}
+/* Contact icons: sage green circles with cream icons */
+.contact-details .contact-icon {
+    background-color: #cbd7ca !important;
+    color: #fffdf8 !important;
+}
+
+.contact-details .contact-icon i {
+    color: #fffdf8 !important;
+}
+
 /* FOOTER */
 
 .site-footer {
-    padding: 12px 5%;
+    padding: 25px 5%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -953,14 +1027,13 @@ textarea {
 }
 
 .site-footer strong {
-    color: #F0D58A;
+    color: var(--sage);
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 0.76rem;
-    font-weight: 400;
+    font-size: 1.1rem;
 }
 
 .site-footer p {
-    color: #F0D58A;
+    color: rgba(247, 243, 234, 0.8);
 }
 
 /* ANIMATION */
@@ -1312,7 +1385,7 @@ textarea {
 }
 
 .academic-label strong {
-    color: #e0c48c;
+    color: #fffdf8;
     font-size: 0.67rem;
     font-weight: 700;
     letter-spacing: 0.16em;
@@ -2539,3 +2612,197 @@ textarea {
         padding: 7px;
     }
 }
+
+/* MATCHED FOOTER TEXT */
+
+.site-footer {
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px 5%;
+    background: var(--green-dark);
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.footer-left,
+.footer-right {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--cream);
+}
+
+.footer-right {
+    text-align: right;
+}
+
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 14px 5%;
+        gap: 10px;
+    }
+
+    .footer-left,
+    .footer-right {
+        font-size: 0.68rem;
+    }
+}
+
+/* ========================================
+   ABOUT PAGE: LEARNING JOURNEY MEDIA
+======================================== */
+
+.about-media-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 20px;
+
+    padding-top: 35px;
+    padding-bottom: 35px;
+
+    border-top: 1px solid var(--border);
+}
+
+/* LEFT SIDE: HEADING */
+
+.about-media-heading {
+    min-width: 0;
+}
+
+.about-media-heading .eyebrow {
+    margin-bottom: 12px;
+}
+
+.about-media-heading h2 {
+    margin: 0;
+
+    color: var(--text);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    font-weight: 500;
+}
+
+.about-media-heading h2 span {
+    display: inline;
+    color: var(--sage);
+    font-style: italic;
+}
+
+/* RIGHT SIDE: MEDIA CARD */
+
+.about-media-card {
+    min-width: 0;
+    padding: 24px;
+
+    background: rgba(220, 226, 211, 0.28);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.about-media-card:hover {
+    background: rgba(220, 226, 211, 0.4);
+    box-shadow: 0 8px 24px rgba(35, 65, 54, 0.06);
+}
+
+.about-media-card h3 {
+    margin: 0 0 8px;
+
+    color: var(--text);
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.about-media-card p {
+    margin: 0 0 16px;
+
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* VIDEO PLAYER */
+
+.about-media-card video {
+    display: block;
+    width: 100%;
+    max-height: 240px;
+
+    background: #e8e7df;
+    border-radius: 6px;
+    object-fit: contain;
+}
+
+/* TABLETS AND MOBILE */
+
+@media (max-width: 650px) {
+    .about-media-section {
+        grid-template-columns: 1fr;
+        gap: 22px;
+
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .about-media-heading h2 {
+        font-size: clamp(2rem, 8vw, 2.6rem);
+    }
+
+    .about-media-card {
+        padding: 18px;
+    }
+
+    .about-media-card video {
+        max-height: 220px;
+    }
+}
+
+/* FINAL MINIMAL FOOTER */
+
+.site-footer {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px 5%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    background: transparent !important;
+    border-top: 1px solid var(--border);
+
+    color: var(--muted);
+    font-family: Arial, sans-serif;
+    font-size: 0.76rem;
+}
+
+.site-footer .footer-right {
+    margin: 0;
+    padding: 0;
+    color: var(--muted);
+    font-family: Arial, sans-serif;
+    font-size: 0.76rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: right;
+}
+
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 10px 5%;
+    }
+
+    .site-footer .footer-right {
+        font-size: 0.68rem;
+    }
+}
+
+
