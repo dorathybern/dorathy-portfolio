@@ -23,7 +23,6 @@
         <div class="academic-label">
             <div class="academic-label-inner">
                 <strong>SOFTWARE ENGINEERING STUDENT PORTFOLIO</strong>
-
             </div>
         </div>
 
@@ -36,21 +35,33 @@
                 aria-label="Dorathy Oname Bernard home"
             >
                 <span class="brand-details">
-
                     <strong>Dorathy Oname Bernard</strong>
 
                     <span class="brand-university">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M12 3 1.5 8.5 12 14l8-4.2V16h2V8.5L12 3Zm-6.5 9.1V17c3.8 2.8 9.2 2.8 13 0v-4.9L12 16l-6.5-3.9Z"/>
                         </svg>
-
                         Miva Open University
                     </span>
-
                 </span>
             </a>
 
-            <ul class="nav-links">
+            <!-- HAMBURGER MENU BUTTON -->
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="nav-links"
+                type="button"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- NAVIGATION LINKS -->
+            <ul class="nav-links" id="nav-links">
 
                 <li>
                     <a href="index.html" aria-current="page">Home</a>
@@ -85,31 +96,29 @@
 
             <div class="hero-content">
 
-                <p class="eyebrow">
-
+                <p class="eyebrow"></p>
 
                 <h1>
                     Learning
                     <span>Beyond Limits.</span>
                 </h1>
 
-                
-<p class="hero-description">
-    Welcome to my world of learning, creativity, and technology.
+                <p class="hero-description">
+                    Welcome to my world of learning, creativity, and technology.
 
-    <br>
+                    <br>
 
-    I am Dorathy Bernard, a Software Engineering student
-    at Miva Open University, driven by curiosity, creativity,
-    and a passion for innovation. I believe every great idea
-    begins with the willingness to learn, explore, and imagine
-    what is possible. As I grow in my understanding of software
-    engineering, I am discovering new ways to transform ideas
-    into meaningful digital experiences. This portfolio is a
-    reflection of my journey, the skills I am building, the
-    projects I am creating, and the possibilities I hope to
-    bring to life through technology.
-</p>
+                    I am Dorathy Bernard, a Software Engineering student
+                    at Miva Open University, driven by curiosity, creativity,
+                    and a passion for innovation. I believe every great idea
+                    begins with the willingness to learn, explore, and imagine
+                    what is possible. As I grow in my understanding of software
+                    engineering, I am discovering new ways to transform ideas
+                    into meaningful digital experiences. This portfolio is a
+                    reflection of my journey, the skills I am building, the
+                    projects I am creating, and the possibilities I hope to
+                    bring to life through technology.
+                </p>
 
                 <!-- HOMEPAGE BUTTONS -->
                 <div class="hero-buttons">
@@ -136,20 +145,13 @@
             <div class="hero-image">
 
                 <div class="image-frame">
-
                     <img
                         src="profile1.jpg"
                         alt="Portrait of Dorathy Oname Bernard"
                     >
-
                 </div>
 
-                <div class="image-caption">
-
-
-                   
-
-                </div>
+                <div class="image-caption"></div>
 
             </div>
 
@@ -168,7 +170,37 @@
 
     </footer>
 
+    <!-- HAMBURGER MENU FUNCTIONALITY -->
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const navLinks = document.getElementById("nav-links");
 
+        menuToggle.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("active");
+
+            menuToggle.classList.toggle("active", isOpen);
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+            );
+        });
+
+        navLinks.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+                menuToggle.classList.remove("active");
+
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation menu"
+                );
+            });
+        });
+    </script>
 
 </body>
 </html>
