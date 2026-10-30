@@ -313,6 +313,7 @@ main {
     position: relative;
     width: min(390px, 100%);
     margin-left: auto;
+    margin-top: 15px;
     padding: 12px;
     background: var(--sage);
     box-shadow: var(--shadow);
