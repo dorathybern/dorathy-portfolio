@@ -2806,4 +2806,11 @@ textarea {
     }
 }
 
-
+/* Career Aspirations paragraph styling */
+.career-aspirations > p {
+    margin-bottom: 22px;
+    color: var(--muted);
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+}
