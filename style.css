@@ -1291,7 +1291,6 @@ textarea {
 .planner-filter-heading h2 span {
     color: #7f9a88; font-style: italic;
 }
-}
 .planner-section .task-filters {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
